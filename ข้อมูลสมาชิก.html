@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+        <link rel="icon" type="image/png" sizes="16x16"  href="JDM1.png">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="theme-color" content="#ffffff">
+        <title>JDM | ข้อมูลสมาชิก</title>
+
+        <link href="css.css" rel="stylesheet">
+        <style>
+            a:visited {color:black; background-color:transparent; text-decoration:none}
+            a:hover   {color:red; background-color:transparent; text-decoration:underline}
+            a:active  {color:yellow; background-color:transparent; text-decoration:underline}
+        </style>
+    </head>
+
+
+    <body>
+        <center><h1 class="h1">ข้อมูลสมาชิก</h1></center>
+       <p align="right" class="p"> <a href="index.html">หน้าแรก</a> | 
+        <a href="ประวัติ.html">ประวัติ</a> | 
+        <a href="ข้อมูลสมาชิก.html">ข้อมูลสมาชิก</a> | 
+        <a href="กิจกรรม.html">กิจกรรม</a> | 
+        <a href="ข้อมูลการติกต่อ.html">ข้อมูลการติดต่อ</a><p><br>
+            <div class="container">
+                <div class="forms-container">
+                  <div class="signin-signup">
+                      <h2 class="title">Sign in</h2>
+                    <form class="sign-in-form" method="POST" accept-charset="UTF-8" autocomplete="off" name="contact"> 
+                
+                            <div class="input-field">
+                                    <input type="text" name="first_name" required autocomplete="off">
+                            </div>
+
+                            <div class="input-field">
+                                    <label for="lname" class="lable">นามสกุล</label>
+                                    <input type="text" name="last_name" class="form-control" required autocomplete="off">
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="input_overlay">
+                                    <label for="email" class="lable">Enter email address</label>
+                                    <input type="text" name="email" class="form-control" required autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="input_overlay">
+                                    <label for="phone" class="lable">Phone number</label>
+                                    <input type="text" name="phone" class="form-control" required autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="input_overlay">
+                                    <label for="subject" class="lable">Subject name</label>
+                                    <input type="text" name="subject" class="form-control" required autocomplete="off">
+                                </div>
+                            </div>
+                                                         
+                            <div class="col-12 text-end">
+                            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                            </div>
+                            <p id="demo"></p>
+                        </div>
+                         
+                    </form>
+                </div>
+            </div>
+
+
+</main>
+
+
+ 
+
+<script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycby7Z1qFBeFB8_6dzZ7tFvRjYvZWqjATfNWT_fo31KvWQlXIB4_knClMR8jyScbnFHomZg/exec'
+        const form = document.forms['contact']
+        
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => document.getElementById("demo").innerHTML = "<div class='alert alert-primary' role='alert'><b>Thank You for providing the details, We shall get back to you shortly !</b></div>",contact.reset())
+            .catch(error => console.error('Error!', error.message))
+        })
+</script>
+    </body>
+</html>
